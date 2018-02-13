@@ -163,7 +163,7 @@ class Chromecast(object):
 
         if not self.device:
             raise ChromecastConnectionError(  # noqa
-                "Could not connect to {}:{}".format(self.host, self.port))
+                "Could not connect to {0}:{1}".format(self.host, self.port))
 
         self.status = None
         self.status_event = threading.Event()
@@ -280,7 +280,7 @@ class Chromecast(object):
         """
         if delta <= 0:
             raise ValueError(
-                "volume delta must be greater than zero, not {}".format(delta))
+                "volume delta must be greater than zero, not {0}".format(delta))
         return self.set_volume(self.status.volume_level + delta)
 
     def volume_down(self, delta=0.1):
@@ -289,7 +289,7 @@ class Chromecast(object):
         """
         if delta <= 0:
             raise ValueError(
-                "volume delta must be greater than zero, not {}".format(delta))
+                "volume delta must be greater than zero, not {1}".format(delta))
         return self.set_volume(self.status.volume_level - delta)
 
     def wait(self, timeout=None):
@@ -346,6 +346,6 @@ class Chromecast(object):
         return txt
 
     def __unicode__(self):
-        return u"Chromecast({}, {}, {}, {}, {})".format(
+        return u"Chromecast({0}, {1}, {2}, {3}, {4})".format(
             self.host, self.port, self.device.friendly_name,
             self.device.model_name, self.device.manufacturer)
